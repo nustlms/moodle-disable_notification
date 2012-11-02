@@ -1,0 +1,19 @@
+--- mod/assignment/lib.php	2012-11-02 13:05:08.394824311 +0500
++++ mod/assignment/lib.php	2012-11-02 09:34:43.502830559 +0500
+@@ -3507,14 +3507,14 @@ function assignment_print_overview($cour
+             // count how many people can submit
+             $submissions = 0; // init
+             if ($students = get_enrolled_users($context, 'mod/assignment:view', 0, 'u.id')) {
+-		 
++		 if($assignment->grade!=0){//Added Hina YOusuf
+ 
+                 foreach ($students as $student) {
+                     if (isset($unmarkedsubmissions[$assignment->id][$student->id])) {
+                         $submissions++;
+                     }
+                 }
+-
++}
+             }
+ 
+             if ($submissions) {
